@@ -13,7 +13,8 @@
     "joeflateau": "./dist/index.js"
   },
   "scripts": {
-    "start": "ts-node-dev --respawn src/index.ts"
+    "start": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc"
   },
   "peerDependencies": {},
   "prettier": {
@@ -23,10 +24,11 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "typescript": "^3.6.4",
-    "ts-node-dev": "^1.0.0-pre.43"
+    "ts-node-dev": "^1.0.0-pre.43",
+    "typescript": "^3.6.4"
   },
   "dependencies": {
+    "tslib": "^1.10.0",
     "chalk": "^2.4.2"
   }
 }
