@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import chalk from 'chalk';
 
 const blue = chalk.rgb(64, 164, 255);
