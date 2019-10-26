@@ -1,21 +1,23 @@
-#!/usr/bin/env node
 import chalk from 'chalk';
 
-console.log(
-  '\n' +
-    `
-  ${chalk.rgb(64, 164, 255)(`Joe Flateau`)}
-  ${chalk.rgb(200, 200, 200)(`joe@joeflateau.net`)}
-  ${chalk.rgb(112, 112, 112)('-'.repeat(32))}
+const blue = chalk.rgb(64, 164, 255);
+const gray = (v: number) => chalk.rgb(v, v, v);
 
-  https://joeflateau.net
-  https://twitter.com/joeflateau
-  https://github.com/joeflateau
+const message = [
+  blue.bold`Joe Flateau`,
+  gray(120)('-'.repeat(32)),
+  gray(190)`joe@joeflateau.net`,
+  gray(190)`https://joeflateau.net`,
+  gray(120)('-'.repeat(32)),
+  gray(190)`https://twitter.com/joeflateau`,
+  gray(190)`https://github.com/joeflateau`,
+  gray(190)`https://linkedin.com/in/joeflateau`,
+  // gray(120)(''),
+  // gray(190)(
+  //   `${chalk.bold(
+  //     'Make one of these:'
+  //   )} ${'https://joeflateau.net/posts/npx-yourself'}`
+  // ),
+];
 
-`
-      .trim()
-      .split('\n')
-      .map(line => line.trim())
-      .join('\n') +
-    '\n'
-);
+console.info('\n' + message.join('\n') + '\n');

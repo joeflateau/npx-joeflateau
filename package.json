@@ -13,6 +13,7 @@
     "joeflateau": "./dist/index.js"
   },
   "scripts": {
+    "clean": "rm -r ./dist",
     "start": "ts-node-dev --respawn src/index.ts",
     "build": "tsc"
   },
