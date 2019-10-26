@@ -10,7 +10,7 @@
     "dist"
   ],
   "bin": {
-    "joeflateau": "node ./dist/index.js"
+    "joeflateau": "./dist/index.js"
   },
   "scripts": {
     "start": "ts-node-dev --respawn src/index.ts"
