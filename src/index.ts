@@ -36,19 +36,22 @@ async function contactForm() {
     { type: "confirm", name: "doContact", message: "Would you like to say hi? I'd love to hear from you!" },
   ]);
   if (doContact) {
-    const { message, name, email } = await prompt([
+    const { message, name, email, doSend } = await prompt([
       { type: "input", name: "name", message: "Your name:", default: "anonymous" },
       { type: "input", name: "email", message: "Your email:", default: "anonymous@example.com" },
-      { type: "input", name: "message", message: "Your message:", default: "👋" },
+      { type: "input", name: "message", message: "Your message to me:", default: "👋" },
+      { type: "confirm", name: "doSend", message: "Ready to send?" },
     ]);
-    try {
-      await fetch("https://joeflateau.net/api/email/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, name, email, category: "npx-joeflateau" }),
-      });
-    } catch (err) {
-      console.error(err.toString());
+    if (doSend) {
+      try {
+        await fetch("https://joeflateau.net/api/email/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message, from: { name, email }, category: "npx-joeflateau" }),
+        });
+      } catch (err) {
+        console.error(err.toString());
+      }
     }
   }
 }
