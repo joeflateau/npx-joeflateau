@@ -36,6 +36,6 @@
     "chalk": "^2.4.2",
     "figlet": "^1.2.4",
     "inquirer": "^7.0.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^3.1.1"
   }
 }
